@@ -1,0 +1,11 @@
+import pandas as pd
+df = pd.read_excel("GE_Dataset_ Task1.xlsx",sheet_name="av_engine_data_aic_psql")
+#print(df)
+df.insert(df.shape[1],"t24_adjusted",(df["t24"]+459.67))
+df.rename(columns={'t24':'t24_original'},inplace=True)
+df.rename(columns={'t24_adjusted':'t24'},inplace=True)
+print([column for column in df])
+#writer = pd.ExcelWriter(r"D:\PycharmProjects\Portfolio\forage\GE_Dataset_ Task1.xlsx")
+#df.to_excel(writer,sheet_name="av_engine_data_aic_psql")
+#writer.save()
+df.to_excel("Step1Result.xlsx")
